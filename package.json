@@ -1,0 +1,14 @@
+{
+  "name": "angular-bootstrap",
+  "version": "1.0.0",
+  "description": "Angular 1.5 Starter",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Saleh Kaddoura",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}
