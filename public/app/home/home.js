@@ -1,20 +1,23 @@
-angular.module('home', [
-  'ui.router'
-])
+;(function(angular, undefined) {
+  'use strict';
 
-.config(['$stateProvider', function($stateProvider) {
-  $stateProvider.state('home', {
-    url: '/home',
-    views: {
-      '': {
-        controller: 'HomeCtrl',
-        templateUrl: '/app/home/home.tpl.html'
-      }  
-    }
-  });
-}])
+  angular.module('A.home', [])
+    .config(HomeConfigFn)
+    .controller('HomeController', HomeControllerFn);
 
-.controller('HomeCtrl', ['$scope', function($scope) {
-  console.log('Home Controller');
-}])
-;
+  function HomeConfigFn($stateProvider) {
+    $stateProvider.state('home', {
+      url: '/home',
+      views: {
+        '': {
+          controller: 'HomeController',
+          templateUrl: '/app/home/home.tpl.html'
+        }
+      }
+    });
+  }
+
+  function HomeControllerFn($scope) {
+    console.log('Home Controller');
+  }
+})(angular);

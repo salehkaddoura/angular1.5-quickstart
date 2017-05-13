@@ -1,26 +1,22 @@
-angular.module('core', [
-  'ui.router',
-  'home'
-])
+;(function(angular, undefined) {
+  'use strict';
 
-.config(['$stateProvider', function($stateProvider) {
-  $stateProvider.state('core', {
-    url: '',
-    controller: 'CoreCtrl',
-    templateUrl: '/app/core.tpl.html'
-  });
-}])
+  angular.module('A', ['ui.router', 'A.login', 'A.home'])
+    .config(ConfigFn)
+    .controller('CoreController', CoreControllerFn);
 
-.run(function() {
-  console.log('Welcome to core.js');
-})
+    function ConfigFn($stateProvider, $locationProvider) {
+      $stateProvider.state('core', {
+        url: '/',
+        controller: 'CoreController',
+        templateUrl: '/app/core.tpl.html',
+      });
 
-.controller('CoreCtrl', ['$scope', '$state', function($scope, $state) {
-  $state.go('home');
-}])
-;
+      $locationProvider.html5Mode(true);
+    }
 
-
-
-
-
+    function CoreControllerFn($scope, $state) {
+      console.log('CoreController Loaded');
+      // $state.go('home');
+    }
+})(angular);
